@@ -1,0 +1,58 @@
+<button type="button" data-toggle="modal" data-target="#newEventModal" class="btn btn-secondary btn-lg btn-block">
+    Add new Event</button>
+
+    <!-- Load event feed here -->
+<ng-template dynamic-event></ng-template>
+
+<div class="modal fade" #newEventModal id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #eventForm="ngForm">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <!-- <input type="date" class="form-control" id="date" name="date" [(ngModel)]="event.date" required #date="ngModel"/> -->
+                        <dl-date-time-picker id="date" name="date" [(ngModel)]="event.date"></dl-date-time-picker>
+                        <div *ngIf="date?.invalid && (date.dirty || date.touched)" class="alert alert-danger">
+                            <div *ngIf="date.errors.required">Date is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance">Distance</label>
+                        <input type="number" class="form-control" id="distance" name="distance" [(ngModel)]="event.distance" required appForbiddenName="0" #distance="ngModel"/>
+                        <div *ngIf="distance?.invalid && (distance.dirty || distance.touched)" class="alert alert-danger">
+                            <div *ngIf="distance.errors.required">Distance is required</div>
+                            <div *ngIf="distance.errors.forbiddenname">Distance cannot be 0</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="verticalAscend">Vertical Ascend</label>
+                        <input type="number" class="form-control" id="verticalAscend" name="verticalAscend" [(ngModel)]="event.verticalAscend" required appForbiddenName="0" #verticalAscend="ngModel"/>
+                        <div *ngIf="verticalAscend?.invalid && (verticalAscend.dirty || verticalAscend.touched)" class="alert alert-danger">
+                            <div *ngIf="verticalAscend.errors.required">Vertical Ascend is required</div>
+                            <div *ngIf="verticalAscend.errors.forbiddenname">Vertical Ascend cannot be 0</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Vertical Ascend</label>
+                        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="event.description" required minlength="20" #description="ngModel"/>
+                        <div *ngIf="description?.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+                            <div *ngIf="description.errors.required">Description is required</div>
+                            <div *ngIf="description.errors.minlength">Description must me greater than 20characters</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" [disabled]="!eventForm.form.valid" (click)="addEvent()" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
