@@ -14,7 +14,7 @@ export class FeedComponent implements OnInit {
 
   @Input() public event: Event;
   //feeds
-  feeds: Event[];
+  public feeds: Event[];
 
   //Get directive which contains ViewContainerRef
   @ViewChild(EventDirective) eventHost: EventDirective;
@@ -54,7 +54,7 @@ export class FeedComponent implements OnInit {
     let viewContainerRef = this.eventHost.viewContainerRef;
     viewContainerRef.clear();
 
-    if (this.feeds !== undefined || this.feeds !== null || this.feeds.entries.length !== 0){
+    if (!this.feeds == undefined){
       this.feeds.forEach(x => {
         let component = viewContainerRef.createComponent(componentFactory);
         (<EventComponent>component.instance).event = x;
