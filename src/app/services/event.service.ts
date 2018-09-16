@@ -24,79 +24,79 @@ export class EventService {
       eventId: 1
     }
   ];
-  private events: Event[];
-  // [ 
-  //   { 
-  //     id: 1,
-  //     description: "This is my test ride, blah blah Test ride 1",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 10,
-  //     user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
-  //     comments: this.comments
-  //   },
-  //   { 
-  //     id: 2,
-  //     description: "This is my test ride, blah blah Test ride 2",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 0,
-  //     user: { name: 'Riley', surname: 'Kemp', pictureUrl: '' },
-  //     comments: new Array()
-  //   },
-  //   { 
-  //     id: 3,
-  //     description: "This is my test ride, blah blah Test ride 3",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 10,
-  //     user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' },
-  //     comments: new Array() 
-  //   },
-  //   { 
-  //     id: 4,
-  //     description: "This is my test ride, blah blah Test ride 4",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 10,
-  //     user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' },
-  //     comments: new Array() 
-  //   },
-  //   { 
-  //     id: 5,
-  //     description: "This is my test ride, blah blah Test ride ",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 10,
-  //     user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
-  //     comments: new Array()
-  //   },
-  //   { 
-  //     id: 6,
-  //     description: "This is my test ride, blah blah Test ride 5",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 10,
-  //     user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
-  //     comments: new Array()
-  //   },
-  //   { 
-  //     id: 7,
-  //     description: "This is my test ride, blah blah Test ride 6",
-  //     date: new Date(),
-  //     verticalAscend: 1200,
-  //     distance: 100,
-  //     attending: 10,
-  //     user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
-  //     comments: new Array()
-  //   },
-  // ];
+  private events: Event[] =
+  [ 
+    { 
+      id: 1,
+      description: "This is my test ride, blah blah Test ride 1",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 10,
+      user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
+      comments: this.comments
+    },
+    { 
+      id: 2,
+      description: "This is my test ride, blah blah Test ride 2",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 0,
+      user: { name: 'Riley', surname: 'Kemp', pictureUrl: '' },
+      comments: new Array()
+    },
+    { 
+      id: 3,
+      description: "This is my test ride, blah blah Test ride 3",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 10,
+      user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' },
+      comments: new Array() 
+    },
+    { 
+      id: 4,
+      description: "This is my test ride, blah blah Test ride 4",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 10,
+      user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' },
+      comments: new Array() 
+    },
+    { 
+      id: 5,
+      description: "This is my test ride, blah blah Test ride ",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 10,
+      user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
+      comments: new Array()
+    },
+    { 
+      id: 6,
+      description: "This is my test ride, blah blah Test ride 5",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 10,
+      user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
+      comments: new Array()
+    },
+    { 
+      id: 7,
+      description: "This is my test ride, blah blah Test ride 6",
+      date: new Date(),
+      verticalAscend: 1200,
+      distance: 100,
+      attending: 10,
+      user: { name: 'Andrew', surname: 'Kemp', pictureUrl: '' } ,
+      comments: new Array()
+    },
+  ];
 
   constructor(public httpClient: HttpClient) { }
 
