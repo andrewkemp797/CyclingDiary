@@ -3,12 +3,11 @@ import { Comment } from './comment';
 import { Time } from 'ngx-bootstrap/timepicker/timepicker.models';
 
 export class Event {
-    id: number;
-    user: User;
+    id: string;
+    userId: string;
     description: string;
     date: Date;
     distance: number;
     verticalAscend: number;
-    attending: number;
-    comments: Comment[];
+    attending: string[];
 }

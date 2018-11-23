@@ -20,33 +20,20 @@ export class FeedComponent implements OnInit {
   @ViewChild(EventDirective) eventHost: EventDirective;
   @ViewChild('newEventModal') modalRef: ModalDirective;
 
-  constructor(private eventService: EventService, private componentFactoryResolver: ComponentFactoryResolver) {
-    this.event = 
-        { 
-          id: 0, 
-          user: { name: 'Che', surname: 'Kemp', pictureUrl: '' }, 
-          attending: 0, 
-          date: new Date(), 
-          verticalAscend: 0, 
-          distance: 0, 
-          description: "" ,
-          comments: new Array()
-        };
-  }
+  constructor(private eventService: EventService, private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    this.getFeeds();
+    this.eventService.readEvents();
+    this.subscribeToFeeds();
   }
   
-  getFeeds(): void {
-    this.eventService
-    .getEvents()
-    .subscribe(o => 
-      { 
-        this.feeds = o;
-        this.populateFeeds();
-      });
+  subscribeToFeeds(): void {
+    this.eventService.events.subscribe(events => {
+      this.feeds = events;
+      this.populateFeeds();
+    });
   }
+
   populateFeeds(): void {
     //resolve my component dynamically 
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(EventComponent);
@@ -54,7 +41,7 @@ export class FeedComponent implements OnInit {
     let viewContainerRef = this.eventHost.viewContainerRef;
     viewContainerRef.clear();
 
-    if (this.feeds !== undefined){
+    if (!this.feeds){
       this.feeds.forEach(x => {
         let component = viewContainerRef.createComponent(componentFactory);
         (<EventComponent>component.instance).event = x;
@@ -64,7 +51,6 @@ export class FeedComponent implements OnInit {
   }
 
   addEvent(): void {
-    this.eventService.addEvent(this.event);
-    this.getFeeds();
+    this.eventService.addNewEvent(this.event);
   }
 }

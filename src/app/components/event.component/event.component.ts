@@ -16,37 +16,20 @@ export class EventComponent {
   @Input() public comment: Comment;
   public comments: Comment[];
   
-  constructor(public eventService: EventService) {
-    this.comment = { text: '', date: new Date(), user: { name: 'Nicole', surname: 'Kemp', pictureUrl: ''}, eventId: 0 };
-    this.event = 
-    { 
-      id: 0, 
-      user: { name: 'Che', surname: 'Kemp', pictureUrl: '' }, 
-      attending: 0, 
-      date: new Date(), 
-      verticalAscend: 0, 
-      distance: 0, 
-      description: "", 
-      comments: new Array() };
-   }
-  addEvent(): void {
-    this.eventService.addEvent(this.event);
-  }
+  constructor(public eventService: EventService) {}
 
   addComment(): void {
-    this.event.comments.push(this.comment);
-    this.eventService.updateEvent(this.event);
-    this.comment = { text: '', date: new Date(), user: { name: 'Nicole', surname: 'Kemp', pictureUrl: ''}, eventId: 0 };
+    this.comment.rideEventId = this.event.id;
+    this.comment.date = new Date();
+    this.comment.userId = "";
   }
 
   increaseJoining() : void {
-    this.event.attending += 1;
-    this.eventService.updateEvent(this.event);
+    // this.event.attending += 1;
+    // this.eventService.updateEvent(this.event);
   }
 
   refresh() : void {
-    this.eventService
-      .getEventByid(this.event.id)
-      .subscribe(x => this.event = x);
+    this.eventService.readEvents();
   }
 }

@@ -1,8 +1,9 @@
 import { User } from "./user";
 
 export class Comment {
-    user: User;
+    id: string;
+    userId: string;
     text: string;
     date: Date;
-    eventId: number;
+    rideEventId: string;
 }
