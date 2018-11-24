@@ -13,18 +13,9 @@ export class EventService {
 
   constructor(private httpClient: HttpClient) {}
 
-   public addNewEvent(event: Event): Observable<boolean> {
-      this.httpClient.post<HttpResponse<boolean>>('', event, { observe: 'response' }).subscribe((resp) => {
-       if (resp.ok){
-         return true;
-       }
-     },
-     (error) => {
-       console.log(error);
-       return false;
-     });
-     //something whent wrong
-     return of(false);
+   public addNewEvent(event: Event): Observable<HttpResponse<string>> {
+      return this.httpClient.post<string>(environment.endpoints.event.addEvent, 
+        event, { observe: 'response' });
    }
 
    public readEvents(continuationToken: string, pageSize: number): Observable<HttpResponse<Event[]>> {
@@ -41,17 +32,11 @@ export class EventService {
      return this.httpClient.get<Event[]>(url, { headers: headers, params: params, observe: 'response'});
    }
 
-   public addNewComment(comment: Comment): Observable<boolean> {
-    this.httpClient.post<HttpResponse<boolean>>('', event, { observe: 'response' }).subscribe((resp) => {
-     if (resp.ok){
-       return true;
-     }
-   },
-   (error) => {
-     console.log(error);
-     return false;
-   });
-   //something went wrong
-   return of(false);
- }
+   public addNewComment(comment: Comment): Observable<HttpResponse<string>> {
+      return this.httpClient.post<string>(environment.endpoints.comment.addComment, comment, { observe: 'response' });
+   }
+
+   public readAllEventComments(eventId: string): Observable<Comment[]> {
+     return this.httpClient.get<Comment[]>(environment.endpoints.comment.GetEventComments + eventId);
+   }
 }

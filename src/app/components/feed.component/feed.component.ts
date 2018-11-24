@@ -5,6 +5,7 @@ import { EventComponent } from '../event.component/event.component';
 import { EventDirective } from '../../directives/event.directive';
 import { ModalDirective } from 'ngx-bootstrap';
 import { environment } from 'src/environments/environment';
+import { Guid } from 'guid-typescript'
 
 @Component({
   selector: 'app-feed',
@@ -25,6 +26,16 @@ export class FeedComponent implements OnInit {
   constructor(private eventService: EventService, private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
+    this.event = 
+        { 
+          id: Guid.create().toString(), 
+          userId: '1',
+          attending: [],
+          date: new Date(), 
+          verticalAscend: 0, 
+          distance: 0, 
+          description: "" ,
+        };
     this.subscribeToFeeds();
   }
   
@@ -53,12 +64,22 @@ export class FeedComponent implements OnInit {
       this.feeds.forEach(x => {
         let component = viewContainerRef.createComponent(componentFactory);
         (<EventComponent>component.instance).event = x;
-        //(<EventComponent>component.instance).getComments();
+        (<EventComponent>component.instance).readAllComments();
       });      
     }
   }
 
   addEvent(): void {
-    this.eventService.addNewEvent(this.event);
+    this.eventService.addNewEvent(this.event).subscribe(resp => {
+      if (resp.ok) {
+        console.log(resp);
+        this.subscribeToFeeds();
+      } else {
+        console.log(resp.status + ':' + resp.body)
+      }
+    },
+    error => {
+      console.log(error);
+    })
   }
 }

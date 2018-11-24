@@ -9,8 +9,12 @@ export const environment = {
   },
   endpoints: {
     event: {
-      addEvent: 'http://localhost:7071/api/AddEvent',
-      readAllEvents: 'http://localhost:7071/api/GetAllEventsPaged/pageSize/'
+      addEvent: 'http://localhost:7071/api/Events/AddEvent',
+      readAllEvents: 'http://localhost:7071/api/EVents/GetAllEventsPaged/pageSize/'
+    },
+    comment: {
+      addComment: 'http://localhost:7071/api/Comments/AddComment',
+      GetEventComments: 'http://localhost:7071/api/Comment/GetEventComments/eventId/'
     }
   }
 };
