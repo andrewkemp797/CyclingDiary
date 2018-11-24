@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  config: {
+    pageSize: 20
+  },
   endpoints: {
     event: {
       addEvent: 'http://localhost:7071/api/AddEvent',

@@ -13,15 +13,15 @@ import { text } from '@angular/core/src/render3/instructions';
 export class EventComponent {
 
   @Input() public event: Event;
-  @Input() public comment: Comment;
+  // @Input() public comment: Comment;
   public comments: Comment[];
   
   constructor(public eventService: EventService) {}
 
   addComment(): void {
-    this.comment.rideEventId = this.event.id;
-    this.comment.date = new Date();
-    this.comment.userId = "";
+    // this.comment.rideEventId = this.event.id;
+    // this.comment.date = new Date();
+    // this.comment.userId = "";
   }
 
   increaseJoining() : void {
@@ -30,6 +30,6 @@ export class EventComponent {
   }
 
   refresh() : void {
-    this.eventService.readEvents();
+    //this.eventService.readEvents();
   }
 }

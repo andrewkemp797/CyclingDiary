@@ -6,7 +6,7 @@ export class Event {
     id: string;
     userId: string;
     description: string;
-    date: Date;
+    date: Date = new Date();
     distance: number;
     verticalAscend: number;
     attending: string[];

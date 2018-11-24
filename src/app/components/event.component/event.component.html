@@ -1,14 +1,14 @@
 <div class="row">
   <!-- Make this a link to user profile -->
-  <div class="col-sm-6 left"><b><a href="#">{{event.user.name + ' ' + event.user.surname}}</a></b></div>
-  <div class="col-sm-6 text-right">{{event.attending + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
+  <!-- <div class="col-sm-6 left"><b><a href="#">{{event.userId}}</a></b></div>
+  <div class="col-sm-6 text-right">{{event.attending + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div> -->
 
   <!-- Event details -->
   <div class="col-sm-12">
     {{event.description}}
   </div>
 
-  <div class="col-sm-3">Attending: {{event.attending}}</div>
+  <!-- <div class="col-sm-3">Attending: {{event.attending}}</div> -->
   <div class="col-sm-3">Date: {{event.date | date:'medium'}}</div>
   <div class="col-sm-3">Distance: {{event.distance}} km</div>
   <div class="col-sm-3">Ascend: {{event.verticalAscend}} m</div>
@@ -16,7 +16,7 @@
 </div>
 
 <!-- Comment section -->
-<div class="input-group mb-3">
+<!-- <div class="input-group mb-3">
   <input type="text" class="form-control" [(ngModel)]="comment.text" placeholder="Add comment here">
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" (click)="addComment()" type="button" id="button-addon2">Comment</button>
@@ -30,6 +30,6 @@
     </div>
     <small>{{com.text}}</small>
   </div>
-</div>
+</div> -->
 
 <div class="divider"></div>

@@ -4,7 +4,7 @@
 <!-- Load event feed here -->
 <ng-template dynamic-event></ng-template>
 
-<div *ngIf="!feeds">No posts to show. Be the first to post your ride :-)</div>
+<ng-container *ngIf="!feeds">No posts to show. Be the first to post your ride :-)</ng-container>
 
 <div class="modal fade" #newEventModal id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

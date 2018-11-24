@@ -11,9 +11,6 @@ import { environment } from 'src/environments/environment';
 })
 export class EventService {
 
-  public continuationToken: string = null;
-  public events: BehaviorSubject<Event[]> = new BehaviorSubject(null);
-
   constructor(private httpClient: HttpClient) {}
 
    public addNewEvent(event: Event): Observable<boolean> {
@@ -30,25 +27,18 @@ export class EventService {
      return of(false);
    }
 
-   public readEvents(pageSize: number = 20): void {
+   public readEvents(continuationToken: string, pageSize: number): Observable<HttpResponse<Event[]>> {
 
      //set parameters
      let params = new HttpParams();
      params.set("pageSize", pageSize.toString())
 
      let headers = new HttpHeaders();
-     headers.set('continuationToken', this.continuationToken);
+     headers.set('continuationToken', continuationToken);
 
      var url = environment.endpoints.event.readAllEvents + pageSize;
 
-     this.httpClient.get<Event[]>(url, { headers: headers, params: params, observe: 'response'}).subscribe(resp => {
-       console.log(resp);
-       this.events.next(resp.body);
-       this.continuationToken = resp.headers.get('continuationToken');
-     },
-     error => {
-       console.log(error);
-     })
+     return this.httpClient.get<Event[]>(url, { headers: headers, params: params, observe: 'response'});
    }
 
    public addNewComment(comment: Comment): Observable<boolean> {

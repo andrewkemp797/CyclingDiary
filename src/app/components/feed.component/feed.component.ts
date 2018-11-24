@@ -4,6 +4,7 @@ import { EventService } from '../../services/event.service';
 import { EventComponent } from '../event.component/event.component';
 import { EventDirective } from '../../directives/event.directive';
 import { ModalDirective } from 'ngx-bootstrap';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-feed',
@@ -14,7 +15,8 @@ export class FeedComponent implements OnInit {
 
   @Input() public event: Event;
   //feeds
-  public feeds: Event[];
+  public feeds: Event[] = new Array();
+  public continuationToken: string = '';
 
   //Get directive which contains ViewContainerRef
   @ViewChild(EventDirective) eventHost: EventDirective;
@@ -23,13 +25,19 @@ export class FeedComponent implements OnInit {
   constructor(private eventService: EventService, private componentFactoryResolver: ComponentFactoryResolver) {}
 
   ngOnInit() {
-    this.eventService.readEvents();
     this.subscribeToFeeds();
   }
   
   subscribeToFeeds(): void {
-    this.eventService.events.subscribe(events => {
-      this.feeds = events;
+    this.eventService.readEvents(this.continuationToken, environment.config.pageSize).subscribe(resp => {
+      console.log(resp.body);
+      this.feeds = resp.body;
+      this.continuationToken = resp.headers ? null : resp.headers.get('continuationToken');
+    },
+    error => {
+      console.log(error);
+    },
+    () => {
       this.populateFeeds();
     });
   }
@@ -41,7 +49,7 @@ export class FeedComponent implements OnInit {
     let viewContainerRef = this.eventHost.viewContainerRef;
     viewContainerRef.clear();
 
-    if (!this.feeds){
+    if (this.feeds){
       this.feeds.forEach(x => {
         let component = viewContainerRef.createComponent(componentFactory);
         (<EventComponent>component.instance).event = x;
