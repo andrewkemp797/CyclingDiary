@@ -4,6 +4,7 @@ import { Observable, of, BehaviorSubject } from 'rxjs';
 
 import { Comment } from '../models/comment';
 import { Event } from '../models/event';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +39,10 @@ export class EventService {
      let headers = new HttpHeaders();
      headers.set('continuationToken', this.continuationToken);
 
-     this.httpClient.get<Event[]>('', { headers: headers, params: params, observe: 'response'}).subscribe(resp => {
+     var url = environment.endpoints.event.readAllEvents + pageSize;
+
+     this.httpClient.get<Event[]>(url, { headers: headers, params: params, observe: 'response'}).subscribe(resp => {
+       console.log(resp);
        this.events.next(resp.body);
        this.continuationToken = resp.headers.get('continuationToken');
      },

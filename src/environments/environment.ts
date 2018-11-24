@@ -3,5 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endpoints: {
+    event: {
+      addEvent: 'http://localhost:7071/api/AddEvent',
+      readAllEvents: 'http://localhost:7071/api/GetAllEventsPaged/pageSize/'
+    }
+  }
 };
