@@ -28,6 +28,7 @@
     "ngx-bootstrap": "^3.0.1",
     "open-iconic": "^1.1.1",
     "rxjs": "^6.0.0",
+    "sass": "^1.16.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
