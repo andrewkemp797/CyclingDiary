@@ -18,6 +18,10 @@ export class EventService {
         event, { observe: 'response' });
    }
 
+   public updateEvent(event: Event): Observable<HttpResponse<string>> {
+     return this.httpClient.put<string>(environment.endpoints.event.updateEvent, event, { observe: 'response' });
+   }
+
    public readEvents(continuationToken: string, pageSize: number): Observable<HttpResponse<Event[]>> {
 
      //set parameters

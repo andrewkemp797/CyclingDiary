@@ -10,7 +10,8 @@ export const environment = {
   endpoints: {
     event: {
       addEvent: 'http://localhost:7071/api/Events/AddEvent',
-      readAllEvents: 'http://localhost:7071/api/EVents/GetAllEventsPaged/pageSize/'
+      readAllEvents: 'http://localhost:7071/api/EVents/GetAllEventsPaged/pageSize/',
+      updateEvent: 'http://localhost:7071/api/EVents/UpdateEvent/'
     },
     comment: {
       addComment: 'http://localhost:7071/api/Comments/AddComment',

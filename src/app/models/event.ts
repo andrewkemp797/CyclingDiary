@@ -9,5 +9,5 @@ export class Event {
     date: Date;
     distance: number;
     verticalAscend: number;
-    attending: string[];
+    attending: string[] = new Array();
 }

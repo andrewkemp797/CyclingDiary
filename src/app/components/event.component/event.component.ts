@@ -59,8 +59,18 @@ export class EventComponent {
   }
 
   increaseJoining() : void {
-    // this.event.attending += 1;
-    // this.eventService.updateEvent(this.event);
+    //TODO: get id of logged in user
+    let loggedInUserId = Guid.create().toString();
+    this.event.attending.push(loggedInUserId);
+
+    this.eventService.updateEvent(this.event).subscribe(resp => {
+      if (resp.ok) {
+        
+      }
+    },
+    error => {
+      console.log(error);
+    });
   }
 
   refresh() : void {
