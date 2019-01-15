@@ -1,34 +1,65 @@
-<div class="row">
-  <!-- Make this a link to user profile -->
-  <div class="col-sm-6 left"><b><a href="#">{{event.user.name + ' ' + event.user.surname}}</a></b></div>
-  <div class="col-sm-6 text-right">{{event.attending + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
+<div class="event-block">
+  <div class="user-profile">
+    <div class="profile-img"></div>
+    <a href="#">{{event.user.name + ' ' + event.user.surname}}</a>
 
-  <!-- Event details -->
-  <div class="col-sm-12">
-    {{event.description}}
+    <div class="d-flex flex-column ml-auto">
+      {{event.attending + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
   </div>
 
-  <div class="col-sm-3">Attending: {{event.attending}}</div>
-  <div class="col-sm-3">Date: {{event.date | date:'medium'}}</div>
-  <div class="col-sm-3">Distance: {{event.distance}} km</div>
-  <div class="col-sm-3">Ascend: {{event.verticalAscend}} m</div>
-  
-</div>
+  <div class="event-details">
+    <div class="row">
+      <div class="col-4">
+        <div class="date-time text-left">{{event.date | date:'MMM d, y | HH:mm'}}</div>
 
-<!-- Comment section -->
-<div class="input-group mb-3">
-  <input type="text" class="form-control" [(ngModel)]="comment.text" placeholder="Add comment here">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" (click)="addComment()" type="button" id="button-addon2">Comment</button>
-  </div>
-</div>
-<div class="list-group" *ngFor="let com of event.comments">
-  <div class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h6 class="mb-1">{{com.user.name + " " + com.user.surname}}</h6>
-      <small>{{com.date | date:'medium'}}</small>
+      </div>
+      <div class="col-4 text-center">
+        <div class="distance-ascend">
+          <img src="../../../assets/icons/ic-distance.svg" alt="distance"> &nbsp; {{event.distance}} km &nbsp;&nbsp;|&nbsp;&nbsp;
+          <img src="../../../assets/icons/ic-ascend.svg"> &nbsp; {{event.verticalAscend}} m</div>
+
+      </div>
+      <div class="col-4 text-right">
+        <div class="location">
+          <img src="../../../assets/icons/ic-location.svg"> &nbsp;
+          Meerendal Wine Farm
+        </div>
+
+      </div>
+
     </div>
-    <small>{{com.text}}</small>
+  </div>
+
+  <div class="row">
+    <!-- Make this a link to user profile -->
+    <div class="col-sm-6 left"><b></b></div>
+    <div class="col-sm-6 text-right"></div>
+  </div>
+    <!-- Event details -->
+  <div class="row">
+    <div class="col-sm-12">
+      {{event.description}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">Attending: {{event.attending}}</div>
+  </div>
+
+  <!-- Comment section -->
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" [(ngModel)]="comment.text" placeholder="Add comment here">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" (click)="addComment()" type="button" id="button-addon2">Comment</button>
+    </div>
+  </div>
+  <div class="list-group" *ngFor="let com of event.comments">
+    <div class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h6 class="mb-1">{{com.user.name + " " + com.user.surname}}</h6>
+        <small>{{com.date | date:'medium'}}</small>
+      </div>
+      <small>{{com.text}}</small>
+    </div>
   </div>
 </div>
 
