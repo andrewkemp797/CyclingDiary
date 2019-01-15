@@ -2,5 +2,23 @@
 @import "bs-overrides";
 @import "~bootstrap/scss/bootstrap";
 
+@mixin gradient-blue {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c41ba+0,53a0fd+100 */
+  background: rgb(76,65,186); /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(76,65,186,1) 0%, rgba(83,160,253,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(76,65,186,1) 0%,rgba(83,160,253,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(76,65,186,1) 0%,rgba(83,160,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c41ba', endColorstr='#53a0fd',GradientType=1 ); /* IE6-9 */
+}
 
-body { background-color: red;}
+.navbar {
+  @include gradient-blue;
+  .navbar-brand {
+    background: url(../assets/logo-white.svg) no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    max-width: 200px;
+    height: 50px;
+  }
+}
+
