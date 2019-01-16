@@ -1,0 +1,83 @@
+// Bootstrap
+@import "bs-overrides";
+@import "~bootstrap/scss/bootstrap";
+
+// Mixin
+@mixin gradient-blue {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c41ba+0,53a0fd+100 */
+  background: rgb(76,65,186); /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(76,65,186,1) 0%, rgba(83,160,253,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(76,65,186,1) 0%,rgba(83,160,253,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(76,65,186,1) 0%,rgba(83,160,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c41ba', endColorstr='#53a0fd',GradientType=1 ); /* IE6-9 */
+} // Navbar background gradient
+
+// Variables
+$navbar-height: 80px;
+$navbar-mobile-height: 50px;
+
+.content {
+  padding-top: calc(20px + #{$navbar-height});
+  @include media-breakpoint-down(sm) {
+    padding-top: calc(10px + #{$navbar-mobile-height});
+  }
+}
+
+.navbar {
+  @include gradient-blue;
+  height: $navbar-height;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  .navbar-brand {
+    background: url(../assets/logo-white.svg) no-repeat center;
+    background-size: 100%;
+    width: 100%;
+    max-width: 200px;
+    height: 50px;
+  }
+  @include media-breakpoint-down(sm) {
+    height: $navbar-mobile-height;
+  }
+}
+
+//ad blocks
+.ad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: #b5b5b5;
+  width: 100%;
+  height: 100%;
+  margin: 20px 0;
+  &.ad-xxl { min-height: 100px;} //extra length
+  &.ad-xl { max-height: 300px;}
+  &.ad-lg { max-height: 250px;}
+  &.ad-md { max-height: 200px;}
+  &.ad-sm { max-height: 150px;}
+  &.ad-xs { max-height: 100px;}
+}
+
+//events
+.event-block {
+  background: #f7f7f7;
+  padding: 1rem;
+  .user-profile {
+    .profile-img {
+      background: #222;
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 15px;
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+  .event-details {
+    margin: 20px 0;
+    .date-time, .distance-ascend, .location { font-size: 12px;}
+  }
+}

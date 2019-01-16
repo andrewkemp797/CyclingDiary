@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
 import { Guid } from 'guid-typescript'
 
 @Component({
-  selector: 'app-x',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })

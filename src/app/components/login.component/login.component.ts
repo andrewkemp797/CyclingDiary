@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var FB: any;
 
 @Component({
-  selector: 'app-feed',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     (window as any).fbAsyncInit = function() {
@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
           console.log('submitLogin',response);
           if (response.authResponse)
           {
+            this.router.navigate(['/feed']);
             //login success
             //login success code here
             //redirect to home page
