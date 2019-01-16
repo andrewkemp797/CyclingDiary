@@ -11,6 +11,7 @@ import { EventComponent } from './components/event.component/event.component';
 import { EventDirective } from './directives/event.directive';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { LoginComponent } from './components/login.component/login.component';
+import { RouteModule } from './route.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoginComponent } from './components/login.component/login.component';
     FormsModule,
     ModalModule.forRoot(),
     DlDateTimePickerDateModule,
+    RouteModule
   ],
   providers: [], 
   entryComponents: [LoginComponent],
