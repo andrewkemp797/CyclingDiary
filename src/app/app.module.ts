@@ -28,7 +28,7 @@ import { LoginComponent } from './components/login.component/login.component';
     DlDateTimePickerDateModule,
   ],
   providers: [], 
-  entryComponents: [EventComponent],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
