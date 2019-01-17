@@ -1,10 +1,10 @@
 <div class="event-block">
   <div class="user-profile">
     <div class="profile-img"></div>
-    <a href="#">{{event.user.name + ' ' + event.user.surname}}</a>
+    <a href="#">{{event.userId}}</a>
 
     <div class="d-flex flex-column ml-auto">
-      {{event.attending + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
+      {{event.attending.length + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
   </div>
 
   <div class="event-details">

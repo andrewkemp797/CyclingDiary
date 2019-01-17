@@ -21,20 +21,9 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ModalModule.forRoot(),
-    DlDateTimePickerDateModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [ RouterModule ],
-  declarations: [     
-    EntryComponent,
-    FeedComponent,
-    EventComponent,
-    EventDirective,
-    LoginComponent 
-  ]
+  declarations: []
 })
 export class AppRoutingModule { }

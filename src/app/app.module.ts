@@ -9,16 +9,28 @@ import { EventDirective } from './directives/event.directive';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { LoginComponent } from './components/login.component/login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
+    EntryComponent,
+    FeedComponent,
+    EventComponent,
+    EventDirective,
+    LoginComponent 
   ],
   imports: [
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    ModalModule.forRoot(),
+    DlDateTimePickerDateModule,
   ],
   providers: [], 
-  entryComponents: [LoginComponent],
+  entryComponents: [EventComponent],
   bootstrap: [EntryComponent]
 })
 export class AppModule { }
