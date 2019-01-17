@@ -39,7 +39,7 @@ export class FeedComponent implements OnInit {
   }
   
   subscribeToFeeds(): void {
-    this.eventService.readEvents(this.continuationToken, environment.config.pageSize).subscribe(resp => {
+    this.eventService.readEvents(null, environment.config.pageSize).subscribe(resp => {
       console.log(resp.body);
       this.feeds = resp.body;
       this.continuationToken = resp.headers ? null : resp.headers.get('continuationToken');
