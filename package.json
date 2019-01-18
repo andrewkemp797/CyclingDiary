@@ -30,6 +30,7 @@
     "open-iconic": "^1.1.1",
     "rxjs": "^6.0.0",
     "sass": "^1.16.0",
+    "uri-js": "^4.2.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

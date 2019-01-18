@@ -15,7 +15,12 @@ export class EventComponent {
 
   @Input() public event: Event;
   // @Input() public comment: Comment;
-  public comments: Comment[];
+  public comments: Comment[] = [
+    { id: '1', userId: '3', text: 'Comment 1', date: new Date(), rideEventId: '1' },
+    { id: '2', userId: '3', text: 'Comment 2', date: new Date(), rideEventId: '1' },
+    { id: '3', userId: '3', text: 'Comment 3', date: new Date(), rideEventId: '2' },
+    { id: '4', userId: '3', text: 'Comment 4', date: new Date(), rideEventId: '2' },
+  ];
   public comment: Comment;
   
   constructor(public eventService: EventService) {}

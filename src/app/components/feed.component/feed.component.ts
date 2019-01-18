@@ -15,7 +15,13 @@ export class FeedComponent implements OnInit {
 
   @Input() public event: Event;
   //feeds
-  public feeds: Event[] = new Array();
+  public feeds: Event[] = [
+    { id: '1', userId: '2', description: 'Test Ride Number 1', date: new Date(), distance: 100, verticalAscend: 1980, attending: [ '1', '2','3' ] },
+    { id: '2', userId: '2', description: 'Test Ride Number 2', date: new Date(), distance: 100, verticalAscend: 1980, attending: [ '1', '2','3' ] },
+    { id: '3', userId: '2', description: 'Test Ride Number 3', date: new Date(), distance: 100, verticalAscend: 1980, attending: [ '1', '2','3' ] },
+    { id: '4', userId: '2', description: 'Test Ride Number 4', date: new Date(), distance: 100, verticalAscend: 1980, attending: [ '1', '2','3' ] },
+    { id: '5', userId: '2', description: 'Test Ride Number 5', date: new Date(), distance: 100, verticalAscend: 1980, attending: [ '1', '2','3' ] }
+  ];
   public continuationToken: string = '';
 
   //Get directive which contains ViewContainerRef
@@ -35,7 +41,8 @@ export class FeedComponent implements OnInit {
           distance: 0, 
           description: "" ,
         };
-    this.subscribeToFeeds();
+    //this.subscribeToFeeds();
+    this.populateFeeds();
   }
   
   subscribeToFeeds(): void {
