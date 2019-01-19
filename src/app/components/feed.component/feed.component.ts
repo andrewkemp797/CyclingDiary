@@ -6,6 +6,7 @@ import { EventDirective } from '../../directives/event.directive';
 import { ModalDirective } from 'ngx-bootstrap';
 import { environment } from 'src/environments/environment';
 import { Guid } from 'guid-typescript'
+declare var FB: any;
 
 @Component({
   templateUrl: './feed.component.html',
