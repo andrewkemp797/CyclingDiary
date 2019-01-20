@@ -5,6 +5,7 @@ import { EventService } from '../../services/event.service';
 import { CommandName } from 'protractor';
 import { text } from '@angular/core/src/render3/instructions';
 import { Guid } from "guid-typescript";
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-event',
@@ -60,7 +61,7 @@ export class EventComponent {
 
   increaseJoining() : void {
     //TODO: get id of logged in user
-    let loggedInUserId = Guid.create().toString();
+    let loggedInUserId: User = { id: Guid.create.toString(), name: 'Andrew', surname: 'Kemp', email: 'andrewkemp797@yahoo.com', profilePicUrl: '' }
     this.event.attending.push(loggedInUserId);
 
     this.eventService.updateEvent(this.event).subscribe(resp => {

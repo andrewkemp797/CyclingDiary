@@ -14,7 +14,7 @@ export const environment = {
     },
     event: {
       addEvent: 'http://localhost:7071/api/Events/AddEvent',
-      readAllEvents: 'http://localhost:7071/api/EVents/GetAllEventsPaged/pageSize/',
+      readAllEvents: 'http://localhost:7071/api/EVents/GetAllEventsPaged',
       updateEvent: 'http://localhost:7071/api/EVents/UpdateEvent/'
     },
     comment: {

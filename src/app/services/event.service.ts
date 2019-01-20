@@ -25,15 +25,15 @@ export class EventService {
    public readEvents(continuationToken: string, pageSize: number): Observable<HttpResponse<Event[]>> {
 
      //set parameters
-     let params = new HttpParams();
-     params.set("pageSize", pageSize.toString())
+    //  let params = new HttpParams();
+    //  params.set("pageSize", pageSize.toString())
 
-     let headers = new HttpHeaders();
-     headers.set('continuationToken', continuationToken);
+    //  let headers = new HttpHeaders();
+    //  headers.set('continuationToken', continuationToken);
 
-     var url = environment.endpoints.event.readAllEvents + pageSize;
+     var url = environment.endpoints.event.readAllEvents;
 
-     return this.httpClient.get<Event[]>(url, { headers: headers, params: params, observe: 'response'});
+     return this.httpClient.get<Event[]>(url, { observe: 'response' });
    }
 
    public addNewComment(comment: Comment): Observable<HttpResponse<string>> {

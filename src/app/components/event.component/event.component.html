@@ -4,7 +4,7 @@
     <a href="#">{{event.userId}}</a>
 
     <div class="d-flex flex-column ml-auto">
-      {{event.attending.length + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
+      {{event.attending?.length + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
   </div>
 
   <div class="event-details">

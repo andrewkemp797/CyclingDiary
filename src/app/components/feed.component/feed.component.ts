@@ -35,6 +35,7 @@ export class FeedComponent implements OnInit {
           verticalAscend: 0, 
           distance: 0, 
           description: "" ,
+          comments: []
         };
     this.subscribeToFeeds();
   }
@@ -64,7 +65,7 @@ export class FeedComponent implements OnInit {
       this.feeds.forEach(x => {
         let component = viewContainerRef.createComponent(componentFactory);
         (<EventComponent>component.instance).event = x;
-        (<EventComponent>component.instance).readAllComments();
+        // (<EventComponent>component.instance).readAllComments();
       });      
     }
   }

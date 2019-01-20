@@ -9,5 +9,7 @@ export class Event {
     date: Date;
     distance: number;
     verticalAscend: number;
-    attending: string[] = new Array();
+
+    comments: Comment[] = new Array();
+    attending: User[] = new Array();
 }
