@@ -1,4 +1,11 @@
 <!-- Load event feed here -->
+<div class="d-flex flex-row">
+  <h1>Events</h1>
+  <button type="button" data-toggle="modal" data-target="#newEventModal" class="ml-auto btn btn-outline-primary">
+    Create Event
+  </button>
+</div>
+
 <ng-template dynamic-event></ng-template>
 
 <ng-container *ngIf="!feeds">No posts to show. Be the first to post your ride :-)</ng-container>
