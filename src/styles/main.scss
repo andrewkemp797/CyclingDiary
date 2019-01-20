@@ -2,6 +2,9 @@
 @import "bs-overrides";
 @import "~bootstrap/scss/bootstrap";
 
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
 // Mixin
 @mixin gradient-blue {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4c41ba+0,53a0fd+100 */
