@@ -1,17 +1,17 @@
 <div class="event-block">
-  <div class="user-profile">
+  <div class="user-profile d-flex flex-row align-items-center">
     <div class="profile-img"></div>
     <a href="#">{{event.userId}}</a>
-
-    <div class="d-flex flex-column ml-auto">
-      {{event.attending.length + " "}}<button class="btn btn-outline-info btn-sm" (click)="increaseJoining()">Attend</button></div>
+    <div class="ml-auto">
+      <span class="attendees">{{event.attending.length + " "}}</span>
+      <button class="btn btn-outline-info" (click)="increaseJoining()">Attend</button>
+    </div>
   </div>
 
   <div class="event-details">
-    <div class="row">
+    <div class="row align-items-center">
       <div class="col-4">
         <div class="date-time text-left">{{event.date | date:'MMM d, y | HH:mm'}}</div>
-
       </div>
       <div class="col-4 text-center">
         <div class="distance-ascend">
@@ -25,9 +25,7 @@
           <img src="../../../assets/icons/ic-location.svg"> &nbsp;
           Meerendal Wine Farm
         </div>
-
       </div>
-
     </div>
   </div>
 
@@ -36,29 +34,33 @@
     <div class="col-sm-6 left"><b></b></div>
     <div class="col-sm-6 text-right"></div>
   </div>
-  <!-- Event details -->
-  <div class="row">
-    <div class="col-sm-12">
-      {{event.description}}
+  <!-- Event description -->
+  <div class="pt-2 pb-4">
+    <div class="row">
+      <div class="col-sm-12">
+        {{event.description}}
+      </div>
     </div>
   </div>
 
   <!-- Comment section -->
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" [(ngModel)]="comment.text" placeholder="Add comment here">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" (click)="addComment()" type="button" id="button-addon2">Comment</button>
+  <div class="comments pt-3">
+    <h6>Comments</h6>
+    <div class="d-flex flex-column mb-3">
+      <textarea rows="3" class="form-control mb-3" [(ngModel)]="comment.text" placeholder="Add comment here"></textarea>
+      <button class="btn btn-outline-secondary ml-auto" (click)="addComment()" type="button" id="button-addon2">Comment</button>
     </div>
-  </div>
-  <div class="list-group" *ngFor="let com of comments">
-    <div class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h6 class="mb-1">{{com.userId}}</h6>
-        <small>{{com.date | date:'MMM d, y | HH:mm'}}</small>
+    <div class="list-group my-2" *ngFor="let com of comments">
+      <div class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="user-profile d-flex flex-row align-items-center">
+          <div class="profile-img"></div>
+          <a href="#">{{com.userId}}</a>
+          <div class="ml-auto">
+            <small>{{com.date | date:'MMM d, y | HH:mm'}}</small>
+          </div>
+        </div>
+        <p class="my-2">{{com.text}}</p>
       </div>
-      <small>{{com.text}}</small>
     </div>
   </div>
 </div>
-
-<div class="divider"></div>

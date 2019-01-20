@@ -60,7 +60,8 @@ $navbar-mobile-height: 50px;
 //events
 .event-block {
   background: #f7f7f7;
-  padding: 1rem;
+  padding: 2rem;
+  margin: 1rem 0;
   .user-profile {
     .profile-img {
       background: #222;
@@ -75,9 +76,28 @@ $navbar-mobile-height: 50px;
       text-decoration: none;
       font-weight: bold;
     }
+    .attendees {
+      background: $primary;
+      color: #fff;
+      vertical-align: middle;
+      padding: 6px;
+      border-radius: 100%;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+      margin: 0 1rem;
+    }
   }
   .event-details {
     margin: 20px 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid $gray-200;
+    border-top: 1px solid $gray-200;
     .date-time, .distance-ascend, .location { font-size: 12px;}
+  }
+  .comments {
+    border-top: 1px solid $gray-200;
   }
 }
