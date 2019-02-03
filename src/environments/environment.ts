@@ -12,6 +12,9 @@ export const environment = {
       getUserData: '/me?fields=email,gender,first_name,last_name,hometown,middle_name&access_token=',
       getProfilePic: (userId: string) => '/${userId}/picture'
     },
+    auth: {
+      authUser: 'http://localhost:7071/api/authorization/Auth'
+    },
     event: {
       addEvent: 'http://localhost:7071/api/Events/AddEvent',
       readAllEvents: 'http://localhost:7071/api/EVents/GetAllEventsPaged',

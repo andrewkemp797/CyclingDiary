@@ -16,7 +16,7 @@ export class FeedComponent implements OnInit {
 
   @Input() public event: Event;
   //feeds
-  public feeds: Event[] = new Array();
+  public feeds: Event[] = new Array<Event>();
   public continuationToken: string = '';
 
   //Get directive which contains ViewContainerRef
@@ -29,7 +29,7 @@ export class FeedComponent implements OnInit {
     this.event = 
         { 
           id: Guid.create().toString(), 
-          userId: '1',
+          userId: localStorage.getItem('jwt'),
           attending: [],
           date: new Date(), 
           verticalAscend: 0, 

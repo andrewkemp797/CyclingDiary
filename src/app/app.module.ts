@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login.component/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { httpInterceptorProviders } from './Interceptors';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { FormsModule } from '@angular/forms';
     ModalModule.forRoot(),
     DlDateTimePickerDateModule,
   ],
-  providers: [], 
+  providers: [ httpInterceptorProviders ], 
   entryComponents: [EventComponent],
   bootstrap: [EntryComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }
